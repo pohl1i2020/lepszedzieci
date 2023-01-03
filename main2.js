@@ -2,11 +2,13 @@ const addElementbtn = document.querySelector('button')
 const h1=document.querySelector('h1');
 const display = document.querySelector('#Display');
 
-let iter = 1
+let iter = 0
+
+const elementType = ['p','div', 'artictle'];
 
 function addElement(){
     const element =document.createElement('p')
-    element.innerHTML = `Nowy element ${iter}`;
+    element.innerHTML = `Nowy element ${elementType[iter]}`;
     element.style.color = '#f00';
     element.style.backgroundColor = '#ff0';
     element.addEventListener('click', function(){
@@ -17,6 +19,9 @@ function addElement(){
 
     display.appendChild(element)
     iter++;
+    if (iter >= elementType.length){
+        iter = 0 
+    }
 }
 
 
